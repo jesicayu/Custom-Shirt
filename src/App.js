@@ -16,19 +16,23 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Body />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/product/:style" element={<Details />} />
-        <Route path="/shopping" element={<Shopping />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductEdit />} />
-        <Route path="/products/new" element={<ProductNew />} />
-      </Routes>
-      <Footer />
+      <div className="flex flex-col h-screen">
+        <Navbar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Body />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/product/:style" element={<Details />} />
+            <Route path="/shopping" element={<Shopping />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductEdit />} />
+            <Route path="/products/new" element={<ProductNew />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }

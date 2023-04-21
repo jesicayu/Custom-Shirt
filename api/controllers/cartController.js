@@ -41,7 +41,7 @@ exports.removeFromCart = (req, res) => {
     .then((cart) => {
       Shirt_Customize.findByPk(itemId).then((foundShirt) => {
         cart.removeItem(foundShirt).then(() => {
-          foundShirt.destroy().then(() => {
+          foundShirt?.destroy().then(() => {
             cart
               .calculateTotalCost()
               .then(() => res.status(200).send("Item removed from cart"));

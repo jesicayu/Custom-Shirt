@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getShoppingApi } from "../../state/ShoppingStore";
 import Card from "../Home/Body_Home/Card";
 const Swal = require("sweetalert2");
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FakeData } from "./FakeData";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import "./Body.css";
@@ -17,6 +16,7 @@ const Body = () => {
 
   return (
     <>
+    
       <div className="py-10 px-10 m-10">
         <h1 className="text-8xl font-bold text-violet-900">
           Bienvenido a Custom T Shirt
