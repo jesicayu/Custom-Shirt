@@ -1,0 +1,72 @@
+{
+  "name": "customt-shirt",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.16",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.12",
+    "@mui/styled-engine-sc": "^5.11.11",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.3.4",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.1",
+    "pg": "^8.9.0",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router": "^6.8.2",
+    "react-router-dom": "^6.8.2",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.1",
+    "redux-logger": "^3.0.6",
+    "sequelize": "^6.29.0",
+    "styled-components": "^5.3.8",
+    "sweetalert2": "^11.7.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "concurrently 'npm run server' 'npm run client'",
+    "server": "nodemon api/server.js",
+    "client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001/",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21",
+    "tailwindcss": "^3.2.7"
+  }
+}
