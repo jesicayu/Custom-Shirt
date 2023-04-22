@@ -87,7 +87,7 @@ function IndividualView() {
             />
           </div>
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
-            <p className="font-semibold text-white mb-14">Reviews</p>
+            {/* <p className="font-semibold text-white mb-14">Reviews</p> */}
             <p className="text-3xl font-bold  text-white sm:text-4xl pb-6">
               {data?.style}
             </p>
@@ -151,15 +151,15 @@ function IndividualView() {
               </p>
               <div className="flex gap-4">
                 <div className="mt-2 flex justify-between gap-2">
-                  {colorsAvailable.map((color, i) => (
-                    <button
-                      key={i}
-                      className={`w-8 h-8 rounded-full  bg-${
-                        color === "white" ? color : color + "-500"
-                      } border-2 border-gray-200 focus:outline-none`}
-                      onClick={() => addColor(color)}
-                    ></button>
-                  ))}
+                  {colorsAvailable.map((color, i) => {
+                    return (
+                      <button
+                        key={i}
+                        className={`w-8 h-8 rounded-full bg-${color === "white" ? color : color + "-500"} border-2 border-gray-200 focus:outline-none`}
+                        onClick={() => addColor(color)}
+                      ></button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

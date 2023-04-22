@@ -39,7 +39,7 @@ Shirt_Model.init(
       allowNull: false,
     },
   },
-  { sequelize: db, modelName: "shirt_model",timestamps: false }
+  { sequelize: db, modelName: "shirt_model", timestamps: false }
 );
 
 module.exports = Shirt_Model;

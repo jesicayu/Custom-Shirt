@@ -4,7 +4,7 @@ import logo from "../shirt.svg";
 const Footer = () => {
   return (
     <div className="w-full" style={{display: "flex", marginTop: "auto"}}>
-    <footer className="mt-auto w-full bottom-0 z-50 bg-gray-800 rounded-lg shadow dark:bg-gray-900 m-4">
+    <footer className="mt-10 w-full bottom-0 z-50 bg-gray-800 rounded-lg shadow dark:bg-gray-900 m-4">
       <div className="w-full container mx-auto p-4 md:px-6 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a href="/" className="flex items-center mb-4 sm:mb-0">

@@ -15,7 +15,6 @@ const Shopping = () => {
   const [precioFinal, setprecioFinal] = useState(0); // Precio total del carrito
   const {email, id} = useSelector((state) => state.user);
 
-
   const montoTotal = (array) => {
     // Actualiza el monto total del carrito
     console.log(array)
@@ -93,9 +92,17 @@ const Shopping = () => {
 
   useEffect(() => {
     axios.get(`/api/cart/${id}`).then((product) => {
+      
+      let contador = 0;
+      const productos = product.data.item;
+      productos.forEach((producto, index) => {
+
+        contador += JSON.parse(localStorage.getItem(`Product ${index}`))
+      });
+
       console.log(product)
       setProducts(product.data.item); // actualiza el estado de products con la respuesta a la api
-      setcontadorProductos(product.data.item.length);
+      setcontadorProductos(!contador ? productos.length : contador);
       if (!controller) {
         // controller evita que se duplique el monto total del carrito haciendo 2 peticiones api
         controller = true;
@@ -111,19 +118,23 @@ const Shopping = () => {
         className="flex justify-between items-center px-12"
         style={{ width: "90%", margin: "0 auto" }}
       >
-        <h1>{`cantidad de productos: ${contadorProductos}`}</h1>
-        <h1>{`Monto total: ${precioFinal}`}</h1>
+        <h1>{`Productos: ${contadorProductos}`}</h1>
+        <h1>{`Total: ${precioFinal}`}</h1>
       </div>
       <div className="Container-Grid-Body-F">
         {products.length > 0 ? (
           products.map((el, index) => (
             <Card
+              id={id}
               el={el}
               state={products.state}
               key={index}
               eliminarUnidad={eliminarUnidad}
               añadirUnidad={añadirUnidad}
               eliminarProducto={eliminarProducto}
+              setcontadorProductos={setcontadorProductos}
+              contadorProductos={contadorProductos}
+              index={index}
             />
           ))
         ) : (

@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css";
+import axios from "axios";
 
-const Card = ({ el, eliminarUnidad, añadirUnidad, eliminarProducto }) => {
-  const [quantity, setQuantity] = useState(1);
+const Card = ({ id, index, el, eliminarUnidad, añadirUnidad, eliminarProducto, setcontadorProductos, contadorProductos }) => {
 
+  const [quantity, setQuantity] = useState(JSON.parse(localStorage.getItem(`Product ${index}`)) || 1);
+  
+  localStorage.setItem(`Product ${index}`, quantity);
+  
   useEffect(() => {
     if (el.quantity > 1) setQuantity(el.quantity);
     return () => {};
   }, [el]);
 
+  
   const agregar = (product) => {
     if (quantity < 5) {
       setQuantity(quantity + 1);
       añadirUnidad(product);
+      setcontadorProductos(contadorProductos + 1);
+      axios.put(`/api/cart/edit/${id}/${product.id}`, { quantity: 1 })
+        .then(response => console.log("AAAAAAAA", response.data))
     }
   };
 
@@ -20,6 +28,7 @@ const Card = ({ el, eliminarUnidad, añadirUnidad, eliminarProducto }) => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
       eliminarUnidad(product);
+      setcontadorProductos(contadorProductos - 1);
     }
   };
 
